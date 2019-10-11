@@ -59,6 +59,10 @@ Digshadow imaged it, you can find it in its original form here: [die map](https:
 Because I used proprietary CAD software for speed and I didn't finish making the converter for the KiCAD format.
 I hope to be able to do that soon.
 
+* What's up with the cell labels ?
+
+They're random, unique names. The first letter corresponds to the column.
+
 * Many small lines aren't traced, why ?
 
 I didn't bother tracing branching lines when their end point was near enough to see it on my 15" screen at the zoom level I used. It's reported on the schematic, of course.
