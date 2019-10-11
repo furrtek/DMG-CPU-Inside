@@ -4,7 +4,7 @@ This repo contains an annotated overlay for the Nintendo Game Boy DMG-CPU-B chip
 
 ![DMG-CPU-B die vector overlay](preview.png)
 
-This was done manually with only a few automated checks so ***THERE'S A HIGH RISK OF ERRORS***. I'm in no way responsible if you made someone's life depend on this and it fucked up.
+This was done manually with only a few automated checks so **THERE'S A HIGH RISK OF ERRORS**. I'm in no way responsible if you made someone's life depend on this and it fucked up.
 
 ## What is done:
 * All APU logic.
@@ -42,34 +42,42 @@ The whole chip can be made a slave for an external CPU by using the test pins. T
   * Bit 5 allows software clocking of the CH1 sweep timer when NET03 is high.
 * Bit 0 of FF23 (NR44) can be read. It relates to the CH4 prescaler.
 * The current wave RAM address can be read in bits 4~0 of FF1C (NR32) when NET03 is high.
-* Probably ther things I missed...
+* Probably other things I missed...
 
 # PAQ (Potentially Asked Questions)
 
 * Why ?
+
 It is well known by emulator authors that the Game Boy is full of quirks. Knowing exactly how and when signals change can help reaching perfect accuracy.
 
+* Where does the die picture come from ? Where can I get it ?
+
+Digshadow imaged it, you can find it in its original form here: [die map](https://siliconpr0n.org/archive/doku.php?id=digshadow:nintendo:dmg-cpu_b)
+
 * Why are the schematics not in an editable format ?
+
 Because I used proprietary CAD software for speed and I didn't finish making the converter for the KiCAD format.
 I hope to be able to do that soon.
 
-* I found a mistake, how can I report it ?
-Until I get the files exported in KiCAD format, please open an issue and describe what's wrong (cell name, net name, position on die, ...).
-
-* How did you know which cells did what ?
-I had to take guesses. Inputs and outputs are easily identified and the cell size gives some clues. When connections are made on the schematic, it's pretty obvious when a guess is wrong.
-Check out [cell zoo](cell_zoo.jpg).
-
-* Where does the die picture come from ?
-Digshadow imaged it, you can find it in its original form here: [die map](https://siliconpr0n.org/archive/doku.php?id=digshadow:nintendo:dmg-cpu_b)
-
 * Many small lines aren't traced, why ?
+
 I didn't bother tracing branching lines when their end point was near enough to see it on my 15" screen at the zoom level I used. It's reported on the schematic, of course.
 
 * Why are there copies of logic blocks providing identical functions ?
+
 It's a way to trade off die space for speed, it seems weird but it's useful. Look up "logic duplication".
 
+* I found a mistake, how can I report it ?
+
+Until I get the files exported in KiCAD format, please open an issue and describe what's wrong (cell name, net name, position on die, ...).
+
+* How did you know which cells did what ?
+
+I had to take guesses. Inputs and outputs are easily identified and the cell size gives some clues. When connections are made on the schematic, it's pretty obvious when a guess is wrong.
+Check out the [cell zoo](cell_zoo.jpg).
+
 * How long did it take ?
+
 Identifying the cells, isolating them, tracing the connections and the schematics took 191 hours.
 
-If you find it worth it, I accept donations through Paypal: paypal.me/furrtek
+If you find it worth it, I accept donations through Paypal: [paypal.me/furrtek](paypal.me/furrtek)
