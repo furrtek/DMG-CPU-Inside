@@ -52,7 +52,7 @@ It is well known by emulator authors that the Game Boy is full of quirks. Knowin
 
 * Where does the die picture come from ? Where can I get it ?
 
-Digshadow imaged it, you can find it in its original form here: [die map](https://siliconpr0n.org/archive/doku.php?id=digshadow:nintendo:dmg-cpu_b)
+Digshadow imaged it, you can find it in its original form here: [die map](http://siliconpr0n.org/map/nintendo/dmg-cpu-b/)
 
 * Why are the schematics not in an editable format ?
 
