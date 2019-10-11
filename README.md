@@ -84,4 +84,4 @@ Check out the [cell zoo](cell_zoo.jpg).
 
 Identifying the cells, isolating them, tracing the connections and the schematics took 191 hours.
 
-If you find it worth it, I accept donations through Paypal: [paypal.me/furrtek](paypal.me/furrtek)
+If you find it worth it, I accept donations through Paypal: [paypal.me/furrtek](https://www.paypal.me/furrtek)
