@@ -20,20 +20,31 @@ This was done manually with only a few automated checks so **THERE'S A HIGH RISK
 * Some analog parts. Why: Poor visibility, lazyness.
 * Some cell groups related to embedded ROM and RAM blocks. Why: They don't affect functionality.
 
+# How to use
+
+Just read the schematics :)
+
+If you want to use the overlay:
+* Get [Inkscape](https://inkscape.org/)
+* Download the [die picture](http://siliconpr0n.org/map/nintendo/dmg-cpu-b/) from Digshadow
+* Resize it to 8000px wide if you're using Inkscape 0.92.2, otherwise it may freeze
+* Download the [SVG overlay](Overlay/dmg-cpu-b_overlay.zip)
+* Open the overlay in Inkscape, import the die picture (chose link, not embed), stick it under the overlay layers, align it and lock it in place
+* Have "fun"
+
 # Notes
 
-Nets named `FROM_CPU*` come out of the CPU core but are not identified. They might be state indicators like the Z80 /M1 or HALT.
+Nets named `FROM_CPU*` and `TO_CPU` are connected to the CPU core but are not clearly identified. Many of them are trigger and acknowledge signals for interrupts. Others might be state indicators like the Z80 /M1 or HALT.
 
 I'm not sure what the UNK2 and UNK3 cells are. UNK2 might be an AND or OR with higher output power. UNK3 looks like an AND or OR next to an inverter, maybe something like (A&B)|C.
 
 Some DFF clock polarities are unclear.
 
-The PISO shift registers used for the serial link and video rendering are made of chains of set-reset-capable DFFs.
-Their loading logic requires a lot of cells but don't be scared, in the end it forms something quite simple.
+The parallel-in-serial-out shift registers used for the serial link and video rendering are made of chains of set-reset-capable DFFs.
+Their loading logic require a lot of cells and seem complex, but in the end it forms something quite simple.
 
 Rather than using multiplexers, many internal busses are instead tri-state capable. The "TRIBUFFER" cells are extensively used for this.
 
-The whole chip can be made a slave for an external CPU by using the test pins. This was already discovered by @Gekkio and probably others.
 
 # Mysteries
 
@@ -42,6 +53,7 @@ The whole chip can be made a slave for an external CPU by using the test pins. T
   * Bit 5 allows software clocking of the CH1 sweep timer when NET03 is high.
 * Bit 0 of FF23 (NR44) can be read. It relates to the CH4 prescaler.
 * The current wave RAM address can be read in bits 4~0 of FF1C (NR32) when NET03 is high.
+* The whole chip can be made a slave for an external CPU by using the test pins. This was already discovered by @Gekkio and maybe others.
 * Probably other things I missed...
 
 # PAQ (Potentially Asked Questions)
@@ -50,10 +62,6 @@ The whole chip can be made a slave for an external CPU by using the test pins. T
 
 It is well known by emulator authors that the Game Boy is full of quirks. Knowing exactly how and when signals change can help reaching perfect accuracy.
 
-* Where does the die picture come from ? Where can I get it ?
-
-Digshadow imaged it, you can find it in its original form here: [die map](http://siliconpr0n.org/map/nintendo/dmg-cpu-b/)
-
 * Why are the schematics not in an editable format ?
 
 Because I used proprietary CAD software for speed and I didn't finish making the converter for the KiCAD format.
@@ -61,11 +69,11 @@ I hope to be able to do that soon.
 
 * What's up with the cell labels ?
 
-They're random, unique names. The first letter corresponds to the column.
+They're random, unique names. The first letter corresponds to the column they're in on the silicon die.
 
 * Many small lines aren't traced, why ?
 
-I didn't bother tracing branching lines when their end point was near enough to see it on my 15" screen at the zoom level I used. It's reported on the schematic, of course.
+I didn't bother tracing branching lines when their end point was near enough to see it on my 15" screen at the zoom level I used. They're reported on the schematic, of course.
 
 * Why are there copies of logic blocks providing identical functions ?
 
@@ -77,8 +85,8 @@ Until I get the files exported in KiCAD format, please open an issue and describ
 
 * How did you know which cells did what ?
 
-I had to take guesses. Inputs and outputs are easily identified and the cell size gives some clues. When connections are made on the schematic, it's pretty obvious when a guess is wrong.
-Check out the [cell zoo](cell_zoo.jpg).
+I had to take guesses. Inputs and outputs are easily identified and the cell size gives some clues. When connections are made on the schematic, it becomes quickly obvious when a guess is wrong.
+Check out the [cell zoo](Cells/cell_zoo.jpg).
 
 * How long did it take ?
 
