@@ -4,7 +4,7 @@ This repo contains an annotated overlay for the Nintendo Game Boy DMG-CPU-B chip
 
 ![DMG-CPU-B die vector overlay](preview.png)
 
-This was done manually with only a few automated checks so **THERE'S A HIGH RISK OF ERRORS**. I'm in no way responsible if you made someone's life depend on this and it fucked up.
+This was done manually with only a few automated checks so **THERE'S A HIGH RISK OF ERROR**. I'm in no way responsible if you made someone's life depend on this and it fucked up.
 
 ## What is done:
 * All APU logic.
@@ -36,18 +36,16 @@ If you want to use the overlay:
 
 Nets named `FROM_CPU*` and `TO_CPU` are connected to the CPU core but are not clearly identified. Many of them are trigger and acknowledge signals for interrupts. Others might be state indicators like the Z80 /M1 or HALT.
 
-I'm not sure what the UNK2 and UNK3 cells are. UNK2 might be an AND or OR with higher output power. UNK3 looks like an AND or OR next to an inverter, maybe something like (A&B)|C.
-
-Some DFF clock polarities are unclear.
+Some DFF clock polarities have to be verified.
 
 The parallel-in-serial-out shift registers used for the serial link and video rendering are made of chains of set-reset-capable DFFs.
 Their loading logic require a lot of cells and seem complex, but in the end it forms something quite simple.
 
 Rather than using multiplexers, many internal busses are instead tri-state capable. The "TRIBUFFER" cells are extensively used for this.
 
-
 # Mysteries
 
+* What does the CUFE cell do ?
 * Bit 4 and 5 of FF26 (NR52) can be written to.
   * Bit 4 sets NET03 (APU test mode ?).
   * Bit 5 allows software clocking of the CH1 sweep timer when NET03 is high.
