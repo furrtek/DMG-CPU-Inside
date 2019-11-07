@@ -45,7 +45,6 @@ Rather than using multiplexers, many internal busses are instead tri-state capab
 
 # Mysteries
 
-* What does the CUFE cell do ?
 * Bit 4 and 5 of FF26 (NR52) can be written to.
   * Bit 4 sets NET03 (APU test mode ?).
   * Bit 5 allows software clocking of the CH1 sweep timer when NET03 is high.
@@ -91,3 +90,5 @@ Check out the [cell zoo](Cells/cell_zoo.jpg).
 Identifying the cells, isolating them, tracing the connections and the schematics took 191 hours.
 
 If you find it worth it, I accept donations through Paypal: [paypal.me/furrtek](https://www.paypal.me/furrtek)
+
+Thanks to Gekkio, Tanjent and Kevin Murphy for the help.
