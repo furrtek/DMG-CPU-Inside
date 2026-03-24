@@ -1,5 +1,7 @@
 # DMG-CPU-Inside
 
+**ARCHIVED PROJECT - Please see https://github.com/msinger/dmg-schematics**
+
 This repo contains an annotated overlay for the Nintendo Game Boy DMG-CPU-B chip die and the extracted schematics.
 
 ![DMG-CPU-B die vector overlay](preview.png)
